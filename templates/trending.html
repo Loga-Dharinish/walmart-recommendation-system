@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Trending Products | RecommendAI</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: "Outfit", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <aside class="sidebar" style="position: sticky; top: 0;">
+        <div class="logo">
+            <span class="icon">🧠</span>
+            <div>
+                <h2>RecommendAI</h2>
+                <p>Smart Product Discovery</p>
+            </div>
+        </div>
+        <nav class="nav">
+            <nav class="nav">
+                <h4>NAVIGATION</h4>
+                <ul>
+                    <li><a href="/">🔍 Product Search</a></li>
+                    <li class="active"><a href="/trending">📈 Trending Products</a></li>
+                    <li><a href="/rating">⭐ Rating Predictor</a></li>
+                    <li><a href="/similar">🔁 Similar Products</a></li>
+                </ul>
+            </nav>
+        </nav>
+        <div class="insights">
+            <h4>INSIGHTS</h4>
+            <ul>
+                <li>🟢 ML Models Active</li>
+                <li>🟢 Recommendations Ready</li>
+            </ul>
+        </div>
+        <div class="engine">
+            <p>⚙️ <strong>ML Engine</strong><br>Powered by Advanced AI</p>
+        </div>
+    </aside>
+
+    <main>
+        <header class="header">
+            <button class="ai-label">⚡ AI-Powered Product Discovery</button>
+        </header>
+
+        <section class="trending-header">
+            <h1>Hottest products <span class="tag">⭐ AI Recommended</span></h1>
+        </section>
+
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                        alt="Running Shoes">
+                    <div class="slide-content">
+                        <h3>Pro Runner XT</h3>
+                        <p>Experience ultimate comfort with our latest running shoes featuring advanced cushioning
+                            technology.</p>
+                        <button class="buy-btn">
+                            <span class="price-tag">$199.99</span>
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1099&q=80"
+                        alt="Smart Watch">
+                    <div class="slide-content">
+                        <h3>SmartWatch Pro</h3>
+                        <p>Stay connected and track your fitness with our feature-packed smartwatch with 14-day battery
+                            life.</p>
+
+                        <button class="buy-btn">
+                            <span class="price-tag">$199.99</span>
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                        alt="Headphones">
+                    <div class="slide-content">
+                        <h3>AudioMaster HD</h3>
+                        <p>Premium noise-canceling headphones with crystal clear sound and 30-hour playtime.</p>
+                        <button class="buy-btn">
+                            <span class="price-tag">$199.99</span>
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80"
+                        alt="Smartphone">
+                    <div class="slide-content">
+                        <h3>UltraPhone 12</h3>
+                        <p>The most advanced smartphone with professional-grade camera and all-day battery.</p>
+                        <button class="buy-btn">
+                            <span class="price-tag">$199.99</span>
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-prev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="btn btn-next">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <div class="slider-dots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+
+        <h2 style="margin: 20px;">🔥 Trending Products</h2>
+
+        <div class="product-grid" style="display: flex; flex-wrap: wrap; gap: 20px;" id="product">
+            {% for product in products %}
+            <div class="product-card">
+                <span class="badge">Trending</span>
+
+                <img src="{{ product['link_1'] if product['link_1'] else '/static/default.png' }} " alt="{{ product['Name'] }}" />
+
+                <div class="brand">{{ product['Brand'] }}</div>
+                <div class="title">{{ product['Name'] }}</div>
+                <div class="rating">
+                    ⭐ {{ product.get('Rating', 'N/A') }}
+                    <small>({{ product.get('ReviewCount', '0') }})</small>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+
+
+
+        <section class="analytics">
+            <h2>Trending Analytics</h2>
+            <div class="analytics-grid">
+                <div class="metric blue">
+                    <h3>85%</h3>
+                    <p>User Satisfaction</p>
+                </div>
+                <div class="metric green">
+                    <h3>12.5K</h3>
+                    <p>Products Analyzed</p>
+                </div>
+                <div class="metric purple">
+                    <h3>24/7</h3>
+                    <p>Real-time Updates</p>
+                </div>
+                <div class="metric orange">
+                    <h3>98%</h3>
+                    <p>Accuracy Rate</p>
+                </div>
+            </div>
+            <a class="explore-btn" href="/">Explore More Products ✨</a>
+        </section>
+    </main>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+            const slider = document.querySelector('.slider');
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.querySelector('.btn-prev');
+            const nextBtn = document.querySelector('.btn-next');
+            const dots = document.querySelectorAll('.dot');
+
+            let currentSlide = 0;
+            const slideCount = slides.length;
+            let slideInterval;
+            const intervalTime = 5000; // 5 seconds
+
+            // Initialize slider
+            function initSlider() {
+                updateSlider();
+                startSlideShow();
+
+                // Event listeners
+                prevBtn.addEventListener('click', prevSlide);
+                nextBtn.addEventListener('click', nextSlide);
+
+                // Dot navigation
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        goToSlide(index);
+                    });
+                });
+
+                // Pause on hover
+                slider.addEventListener('mouseenter', pauseSlideShow);
+                slider.addEventListener('mouseleave', startSlideShow);
+            }
+
+            // Update slider position
+            function updateSlider() {
+                slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+                // Update dots
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlide);
+                });
+            }
+
+            // Next slide
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slideCount;
+                updateSlider();
+                resetInterval();
+            }
+
+            // Previous slide
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+                updateSlider();
+                resetInterval();
+            }
+
+            // Go to specific slide
+            function goToSlide(index) {
+                currentSlide = index;
+                updateSlider();
+                resetInterval();
+            }
+
+            // Start slideshow
+            function startSlideShow() {
+                slideInterval = setInterval(nextSlide, intervalTime);
+            }
+
+            // Pause slideshow
+            function pauseSlideShow() {
+                clearInterval(slideInterval);
+            }
+
+            // Reset interval timer
+            function resetInterval() {
+                pauseSlideShow();
+                startSlideShow();
+            }
+
+            // Touch events for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            slider.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                pauseSlideShow();
+            }, { passive: true });
+
+            slider.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+                startSlideShow();
+            }, { passive: true });
+
+            function handleSwipe() {
+                const threshold = 50;
+                if (touchEndX < touchStartX - threshold) {
+                    nextSlide();
+                } else if (touchEndX > touchStartX + threshold) {
+                    prevSlide();
+                }
+            }
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') {
+                    nextSlide();
+                } else if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                }
+            });
+
+            // Initialize the slider
+            initSlider();
+        });
+    </script>
+</body>
+
+</html>

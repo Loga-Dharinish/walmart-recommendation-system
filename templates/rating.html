@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Rating Predictor</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Outfit", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <aside class="sidebar"  style="position: sticky; top: 0;">
+        <div class="logo">
+            <span class="icon">🧠</span>
+            <div>
+                <h2>RecommendAI</h2>
+                <p>Smart Product Discovery</p>
+            </div>
+        </div>
+        <nav class="nav">
+            <h4>NAVIGATION</h4>
+            <ul>
+                <li ><a href="index.html">🔍 Product Search</a></li>
+                <li ><a href="trending.html">📈 Trending Products</a></li>
+                <li class="active"><a href="/rating">⭐ Rating Predictor</a></li>
+                <li><a href="similar.html">🔁 Similar Products</a></li>
+            </ul>
+        </nav>
+        <div class="insights">
+            <h4>INSIGHTS</h4>
+            <ul>
+                <li>🟢 ML Models Active</li>
+                <li>🟢 Recommendations Ready</li>
+            </ul>
+        </div>
+        <div class="engine">
+            <p>⚙️ <strong>ML Engine</strong><br>Powered by Advanced AI</p>
+        </div>
+    </aside>
+    <main>
+
+        <div class="rating-predictor-container">
+            <h1 class="heading" style="color: #FFCB61;">
+                <span class="emoji"></span> AI Rating Predictor
+            </h1>
+            <p class="subtext">
+                Use our machine learning model to predict product ratings and review counts based on product features
+            </p>
+
+            <div class="predictor-grid">
+                <!-- Left Side: Product Information -->
+                <div class="product-info" style="background: #090040; color: white;">
+                    <div class="panel-header purple">
+                        <h2>📦 Product Information</h2>
+                    </div>
+                    <div class="panel-body">
+                        <label>Price ($)</label>
+                        <input type="text" placeholder="299.99" />
+
+                        <label>Brand</label>
+                        <select>
+                            <option>Select brand</option>
+                        </select>
+
+                        <label>Category</label>
+                        <select>
+                            <option>Select category</option>
+                        </select>
+
+                        <label>Tags</label>
+                        <input type="text" placeholder="premium, wireless, waterproof" />
+
+                        <label>Description</label>
+                        <textarea placeholder="Brief product description..."></textarea>
+
+                        <button class="predict-btn">⚙️ Predict Rating</button>
+                    </div>
+                </div>
+
+                <!-- Right Side: ML Prediction Results -->
+                <div class="ml-results" style="background: #5EABD6; color: white;">
+                    <div class="panel-header green">
+                        <h2>📈 ML Prediction Results</h2>
+                    </div>
+                    <div class="panel-body result-box">
+                        <div class="result-placeholder">
+                            <div class="brain-icon">🧠</div>
+                            <p style="color: white;">Enter product details and click "Predict Rating" to see ML predictions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
